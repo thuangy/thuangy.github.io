@@ -27,6 +27,7 @@ var tttpanel = document.querySelectorAll('canvas');
 
 var opponento = panels[Math.floor(Math.random()*panels.length)];
 
+
 function makeo(panelid) {
 	opanels.push(Number(panelid));
 	panels.splice(panels.indexOf(Number(panelid)), 1);
@@ -38,11 +39,11 @@ function makeo(panelid) {
 	for (x in winningcombos) {
 		if (contains(winningcombos[x], xpanels)) {
 			alert("You win!");
-			break;
-		}
-		if (contains(winningcombos[x], opanels)) {
+			break
+		} 
+		else if (contains(winningcombos[x], opanels)) {
 			alert("You lose!");
-			break;
+			break
 		}
 	}
 }
