@@ -19,7 +19,7 @@ tttreset.onclick = function() {
 		var c = document.getElementById(panelid);
 		var ctx = c.getContext("2d");
 		ctx.beginPath();
-		ctx.clearRect(0, 0, 300, 150);
+		ctx.clearRect(0, 0, 100, 100);
 	}
 	
 }
@@ -35,6 +35,10 @@ var tttpanel = document.querySelectorAll('canvas');
 
 var opponento = panels[Math.floor(Math.random()*panels.length)];
 
+function strategy() {
+	
+}
+
 
 function makeo(panelid) {
 	opanels.push(Number(panelid));
@@ -42,8 +46,8 @@ function makeo(panelid) {
 	var c = document.getElementById(panelid);
 	var ctx = c.getContext("2d");
 	ctx.beginPath();
-	ctx.lineWidth = 25;
-	ctx.arc(150, 75, 75, 0, 2*Math.PI);
+	ctx.lineWidth = 10;
+	ctx.arc(50, 50, 45, 0, 2*Math.PI);
 	ctx.stroke();
 	for (x in winningcombos) {
 		if (contains(winningcombos[x], opanels)) {
@@ -60,10 +64,10 @@ function makex(panelid) {
 	var c = document.getElementById(panelid);
 	var ctx = c.getContext("2d");
 	ctx.moveTo(0,0);
-	ctx.lineWidth = 25;
-	ctx.lineTo(300, 150);
-	ctx.moveTo(300, 0);
-	ctx.lineTo(0, 150);
+	ctx.lineWidth = 10;
+	ctx.lineTo(100, 100);
+	ctx.moveTo(100, 0);
+	ctx.lineTo(0, 100);
 	ctx.stroke();
 	for (x in winningcombos) {
 		if (contains(winningcombos[x], xpanels)) {
@@ -72,79 +76,121 @@ function makex(panelid) {
 			break
 		} 
 	}
-	if (panels.length === 0) {
-		alert("It's a draw!")
+	if (stopttt === false) {
+		if (panels.length === 0) {
+			alert("It's a draw!")
+		}
 	}
+	
 }
 
 tttpanel[0].onclick = function() {
-	var panelid = tttpanel[0].getAttribute('id');
-	makex(panelid);
 	if (stopttt === false) {
-		makeo(opponento);
+		if (contains([0], panels)) {
+			var panelid = tttpanel[0].getAttribute('id');
+			makex(panelid);
+			if (stopttt === false) {
+				makeo(opponento);
+			}
+		}
 	}
 }
+
 tttpanel[1].onclick = function() {
-	var panelid = tttpanel[1].getAttribute('id');
-	makex(panelid);
 	if (stopttt === false) {
-		makeo(opponento);
+		if (contains([1], panels)) {
+			var panelid = tttpanel[1].getAttribute('id');
+			makex(panelid);
+			if (stopttt === false) {
+				makeo(opponento);
+			}
+		}
 	}
 }
 
 tttpanel[2].onclick = function() {
-	var panelid = tttpanel[2].getAttribute('id');
-	makex(panelid);
 	if (stopttt === false) {
-		makeo(opponento);
+		if (contains([2], panels)) {
+			var panelid = tttpanel[2].getAttribute('id');
+			makex(panelid);
+			if (stopttt === false) {
+				makeo(opponento);
+			}
+		}
 	}
 }
 
 tttpanel[3].onclick = function() {
-	var panelid = tttpanel[3].getAttribute('id');
-	makex(panelid);
 	if (stopttt === false) {
-		makeo(opponento);
+		if (contains([3], panels)) {
+			var panelid = tttpanel[3].getAttribute('id');
+			makex(panelid);
+			if (stopttt === false) {
+				makeo(opponento);
+			}
+		}
 	}
 }
+
 tttpanel[4].onclick = function() {
-	var panelid = tttpanel[4].getAttribute('id');
-	makex(panelid);
 	if (stopttt === false) {
-		makeo(opponento);
+		if (contains([4], panels)) {
+			var panelid = tttpanel[4].getAttribute('id');
+			makex(panelid);
+			if (stopttt === false) {
+				makeo(opponento);
+			}
+		}
 	}
 }
 
 tttpanel[5].onclick = function() {
-	var panelid = tttpanel[5].getAttribute('id');
-	makex(panelid);
 	if (stopttt === false) {
-		makeo(opponento);
+		if (contains([5], panels)) {
+			var panelid = tttpanel[5].getAttribute('id');
+			makex(panelid);
+			if (stopttt === false) {
+				makeo(opponento);
+			}
+		}
 	}
 }
 
 tttpanel[6].onclick = function() {
-	var panelid = tttpanel[6].getAttribute('id');
-	makex(panelid);
 	if (stopttt === false) {
-		makeo(opponento);
-	}
-}
-tttpanel[7].onclick = function() {
-	var panelid = tttpanel[7].getAttribute('id');
-	makex(panelid);
-	if (stopttt === false) {
-		makeo(opponento);
-	}
-}
-tttpanel[8].onclick = function() {
-	var panelid = tttpanel[8].getAttribute('id');
-	makex(panelid);
-	if (stopttt === false) {
-		makeo(opponento);
+		if (contains([6], panels)) {
+			var panelid = tttpanel[6].getAttribute('id');
+			makex(panelid);
+			if (stopttt === false) {
+				makeo(opponento);
+			}
+		}
 	}
 }
 
+tttpanel[7].onclick = function() {
+	if (stopttt === false) {
+		if (contains([7], panels)) {
+			var panelid = tttpanel[7].getAttribute('id');
+			makex(panelid);
+			if (stopttt === false) {
+				makeo(opponento);
+			}
+		}
+	}
+}
+
+tttpanel[8].onclick = function() {
+	if (stopttt === false) {
+		if (contains([8], panels)) {
+			var panelid = tttpanel[8].getAttribute('id');
+			makex(panelid);
+			if (stopttt === false) {
+				makeo(opponento);
+			}
+		}
+	}
+}
 
 
 var myImage = document.querySelector('img')
