@@ -1,9 +1,4 @@
 
-function multiply(num1, num2) {
-	var result = num1 * num2;
-	return result
-}
-
 function contains(arr1, arr2) {
 	for (var i = 0; i < arr1.length; i++) {
 		if ($.inArray(arr1[i], arr2) === -1) {
@@ -15,13 +10,26 @@ function contains(arr1, arr2) {
 
 var tttreset = document.querySelector('button');
 tttreset.onclick = function() {
-	alert("Haha")
+	stopttt = false;
+	panels = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+	xpanels = [];
+	opanels = [];
+	for (x in staticpanels) {
+		var panelid = tttpanel[x].getAttribute('id');
+		var c = document.getElementById(panelid);
+		var ctx = c.getContext("2d");
+		ctx.beginPath();
+		ctx.clearRect(0, 0, 300, 150);
+	}
+	
 }
 
-winningcombos = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
-panels = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-xpanels = []
-opanels = []
+var winningcombos = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+var staticpanels = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+var panels = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+var xpanels = [];
+var opanels = [];
+var stopttt = false;
 
 var tttpanel = document.querySelectorAll('canvas');
 
@@ -34,14 +42,11 @@ function makeo(panelid) {
 	var c = document.getElementById(panelid);
 	var ctx = c.getContext("2d");
 	ctx.beginPath();
+	ctx.lineWidth = 25;
 	ctx.arc(150, 75, 75, 0, 2*Math.PI);
 	ctx.stroke();
 	for (x in winningcombos) {
-		if (contains(winningcombos[x], xpanels)) {
-			alert("You win!");
-			break
-		} 
-		else if (contains(winningcombos[x], opanels)) {
+		if (contains(winningcombos[x], opanels)) {
 			alert("You lose!");
 			break
 		}
@@ -55,10 +60,18 @@ function makex(panelid) {
 	var c = document.getElementById(panelid);
 	var ctx = c.getContext("2d");
 	ctx.moveTo(0,0);
+	ctx.lineWidth = 25;
 	ctx.lineTo(300, 150);
 	ctx.moveTo(300, 0);
 	ctx.lineTo(0, 150);
 	ctx.stroke();
+	for (x in winningcombos) {
+		if (contains(winningcombos[x], xpanels)) {
+			stopttt = true;
+			alert("You win!");
+			break
+		} 
+	}
 	if (panels.length === 0) {
 		alert("It's a draw!")
 	}
@@ -67,47 +80,69 @@ function makex(panelid) {
 tttpanel[0].onclick = function() {
 	var panelid = tttpanel[0].getAttribute('id');
 	makex(panelid);
-	makeo(opponento);
+	if (stopttt === false) {
+		makeo(opponento);
+	}
 }
 tttpanel[1].onclick = function() {
 	var panelid = tttpanel[1].getAttribute('id');
 	makex(panelid);
-	makeo(opponento);
+	if (stopttt === false) {
+		makeo(opponento);
+	}
 }
+
 tttpanel[2].onclick = function() {
 	var panelid = tttpanel[2].getAttribute('id');
 	makex(panelid);
-	makeo(opponento);
+	if (stopttt === false) {
+		makeo(opponento);
+	}
 }
+
 tttpanel[3].onclick = function() {
 	var panelid = tttpanel[3].getAttribute('id');
 	makex(panelid);
-	makeo(opponento);
+	if (stopttt === false) {
+		makeo(opponento);
+	}
 }
 tttpanel[4].onclick = function() {
 	var panelid = tttpanel[4].getAttribute('id');
 	makex(panelid);
-	makeo(opponento);
+	if (stopttt === false) {
+		makeo(opponento);
+	}
 }
+
 tttpanel[5].onclick = function() {
 	var panelid = tttpanel[5].getAttribute('id');
 	makex(panelid);
-	makeo(opponento);
+	if (stopttt === false) {
+		makeo(opponento);
+	}
 }
+
 tttpanel[6].onclick = function() {
 	var panelid = tttpanel[6].getAttribute('id');
 	makex(panelid);
-	makeo(opponento);
+	if (stopttt === false) {
+		makeo(opponento);
+	}
 }
 tttpanel[7].onclick = function() {
 	var panelid = tttpanel[7].getAttribute('id');
 	makex(panelid);
-	makeo(opponento);
+	if (stopttt === false) {
+		makeo(opponento);
+	}
 }
 tttpanel[8].onclick = function() {
 	var panelid = tttpanel[8].getAttribute('id');
 	makex(panelid);
-	makeo(opponento);
+	if (stopttt === false) {
+		makeo(opponento);
+	}
 }
 
 
