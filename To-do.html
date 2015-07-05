@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+
+<form id="form" onsubmit="return false;">
+    <input style="position:absolute; top:50%; left:5%; width:40%;" type="text" id="userInput" />
+    <input style="position:absolute; top:80%; left:5%; width:40%;" type="submit" onclick="savetask();" />
+</form>
+
+<script type="text/javascript">
+
+if (! count) {
+  	var count = 0;
+}
+
+function savetask() {
+
+	  count++;
+
+    var input = document.getElementById("userInput").value;
+
+    var newCheckBox = document.createElement('input');
+    newCheckBox.setAttribute("id", String(count));
+    newCheckBox.type = 'checkbox';
+    newCheckBox.onclick = function() {
+        var deletebox = this;
+        var deletelabel = document.getElementsByTagName("label")[deletebox.id - 1];
+        deletelabel.style.textDecoration = "line-through";
+        setTimeout(function() {
+            deletebox.parentNode.removeChild(deletebox);
+            deletelabel.parentNode.removeChild(deletelabel);
+        }, 1000);
+    };
+    var newLabel = document.createElement('label');
+    newLabel.setAttribute("for", String(count));
+    var linebreak = document.createElement("br");
+
+
+  	var newContent = document.createTextNode(input); 
+  	newLabel.appendChild(newContent); 
+
+  	// add the newly created element and its content into the DOM 
+  	var inputform = document.getElementById("form"); 
+  	document.body.insertBefore(newCheckBox, inputform);
+    document.body.insertBefore(newLabel, inputform);
+	  document.body.insertBefore(linebreak, inputform);
+
+    localStorage.setItem("testkey", "testvalue");
+
+    var current_state = document.documentElement.outerHTML;
+    //var username = window.opener.username;
+    localStorage.setItem(username + "_last_state", current_state);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Login Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+  <p>Please enter your login information</p>
+  <form>
+    Username:<br>
+    <input type="text" id="username">
+    <br>
+    Password:<br>
+    <input type="text" id="password">
+    <br>
+    <input type="submit" onclick="checkinfo();" />
+  </form>
+
+<script type="text/javascript">
+
+  function checkinfo() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if (localStorage.getItem(username) === null) {
+      localStorage.setItem(username, password);
+    } else if (localStorage.getItem(username) === password) {
+      if (localStorage.getItem(username + "_last_state") === null) {
+        var todo_list = window.open("To-do.html", "_blank");
+      } else {
+        var todo_list = window.open(localStorage.getItem(username + "_last_state"), "_blank");
+      }
+      todo_list.username = username;
+    } else {
+      alert("Incorrect login information!");
+    }
+  }
+
+</script>
+
+
+</body>
+</html>

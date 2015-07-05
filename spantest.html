@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tina's Website</title>
+  <!-- Add some style to your site, see http://getbootstrap.com for details -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" -->
+</head>
+<body class="home">
+	<header class="topbar">
+  	<a href="aboutme.html">About Me</a>
+  	<a href="animations.html">My Animations</a>
+    <a href="games.html">My Games</a>
+  </header>
+
+  <h1>Tina Huang</h1>
+  <hr>
+  <span>Hello&#8195;hello</span><span style="color:blue"> hello</span><span> there</span>
+  <span>"Autograder Finished "
+    <br>
+    <br>
+    <br>
+    <br>
+    "[Test 1] feedback: "
+  </span>
+  <span><details><summary>Hello</summary><p>there</p></details></span>
+
+  <span><table style="width:100% text-align:right">
+  <tr>
+    <td style="color:green">Jill</td>
+    <td>Smith</td>    
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>    
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>    
+    <td>80</td>
+  </tr>
+</table></span>
+
+<section class="hints"> 
+    <div class="collapsible"><header style="text-align:right"><a href="#" id="ht3"><span style="float:left; font-weight:bold;color:black;">Hint</span>Expand &darr;</a></header> 
+        <section id="ht3" style="display: none;"> 
+   ENTER YOUR TEXT HERE 
+        </section> 
+    </div> 
+</section>
+
+<script language="javascript"> 
+function toggle() {
+  var ele = document.getElementById("toggleText");
+  var text = document.getElementById("displayText");
+  if(ele.style.display == "block") {
+        ele.style.display = "none";
+    text.innerHTML = "show";
+    }
+  else {
+    ele.style.display = "block";
+    text.innerHTML = "hide";
+  }
+} 
+</script>
+ 
+<a id="displayText" href="javascript:toggle();">show</a> <== click Here
+<div id="toggleText" style="display: none"><h1>peek-a-boo</h1></div>
+
+
+<script langauge="JavaScript" type="text/javascript"> function doMenu(item) { obj=document.getElementById(item); col=document.getElementById("x" + item); if (obj.style.display=="none") { obj.style.display="block"; col.innerHTML="[-]"; } else { obj.style.display="none"; col.innerHTML="[+]"; } } </script>
+
+<a href="java script:doMenu('main');" id=xmain>[+]</a>October 2008
+<div id=main style="margin-left:1em">
+Item 1<br>
+Item 2<br>
+Item 3<br>
+</div>
+<a href="java script:doMenu('main2');" id=xmain2>[+]</a>November 2008
+<div id=main2 style="margin-left:1em">
+Item 1<br>
+Item 2<br>
+Item 3<br>
+</div>  
+
+
+
+<span class="message">Input: [1, 2] ;  Expected Output: 3 ;  Output: 3 ;  <br><br>[Test 2] </span><span class="correctans">Correct!</span>
+
+  <p>Feel free to take a look around!</p>
+  <p>I am a freshman in college</p>
+  <br/>
+  <img src="http://images.fineartamerica.com/images-medium-large/british-shorthair-kitten-3-months-old-life-on-white.jpg" alt="Cute Cat">
+  <h2><b><i>As you can see, I <strong><mark>love</mark></strong> cats!</i></b></h2>
+</body>
+</html>
