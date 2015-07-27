@@ -42,7 +42,7 @@ function strategy() {
 		if (contains(twoinarow[x], opanels)) {
 			var oindex = Math.floor(x/3);
 			for (y in winningcombos[oindex]) {
-				alert(winningcombos[oindex]);
+				//alert(winningcombos[oindex]);
 				if (contains([winningcombos[oindex][y]], twoinarow[x]) === false && contains([winningcombos[oindex][y]], panels)) {
 					return winningcombos[oindex][y]
 				}

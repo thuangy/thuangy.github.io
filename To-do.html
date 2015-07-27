@@ -8,18 +8,45 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="to-do-styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+  <header class="topbar">
+    <a href="index.html" class="topbar">Home</a>
+    <a href="aboutme.html" class="topbar">About Me</a>
+    <a href="animations.html" class="topbar">My Animations</a>
+    <a href="games.html" class="topbar">My Games</a>
+    <a href="login.html" class="topbar">To-Do List</a>
+  </header>
+<h1 id="username-tasks"></h1>
+<div id="checklist"></div>
+<div id="center">
 <form id="form" onsubmit="return false;">
-    <input style="position:absolute; top:50%; left:5%; width:40%;" type="text" id="userInput" />
-    <input style="position:absolute; top:80%; left:5%; width:40%;" type="submit" onclick="savetask();" />
+    <input type="text" id="userInput" />
+    <input type="submit" id="submit-button" onclick="savetask();" />
 </form>
+</div>
 
 <script type="text/javascript">
+var username = sessionStorage.getItem("username");
 
 if (! count) {
   	var count = 0;
+}
+
+if (!localStorage.getItem(username + "_data")) {
+    localStorage.setItem(username + "_data", JSON.stringify(new userLog));
+}
+
+if (!localStorage.getItem(username + "_numCompleted")) {
+    localStorage.setItem(username + "_numCompleted", 0);
+}
+
+user_log = localStorage.getItem(username + "_data");
+
+function userLog() {
+    this.numCompleted = 0;
 }
 
 function savetask() {
@@ -30,8 +57,10 @@ function savetask() {
 
     var newCheckBox = document.createElement('input');
     newCheckBox.setAttribute("id", String(count));
+    newCheckBox.classList.add('checkbox');
+    //newCheckBox.classList.add(String(count));
     newCheckBox.type = 'checkbox';
-    newCheckBox.onclick = function() {
+    /*newCheckBox.onclick = function() {
         var deletebox = this;
         var deletelabel = document.getElementsByTagName("label")[deletebox.id - 1];
         deletelabel.style.textDecoration = "line-through";
@@ -39,8 +68,10 @@ function savetask() {
             deletebox.parentNode.removeChild(deletebox);
             deletelabel.parentNode.removeChild(deletelabel);
         }, 1000);
-    };
+    };*/
+
     var newLabel = document.createElement('label');
+    newLabel.classList.add(String(count));
     newLabel.setAttribute("for", String(count));
     var linebreak = document.createElement("br");
 
@@ -49,17 +80,71 @@ function savetask() {
   	newLabel.appendChild(newContent); 
 
   	// add the newly created element and its content into the DOM 
-  	var inputform = document.getElementById("form"); 
+
+    var checklist = document.getElementById('checklist');
+    checklist.appendChild(newCheckBox);
+    checklist.appendChild(newLabel);
+    checklist.appendChild(linebreak);
+  	/*var inputform = document.getElementById("form"); 
   	document.body.insertBefore(newCheckBox, inputform);
     document.body.insertBefore(newLabel, inputform);
-	  document.body.insertBefore(linebreak, inputform);
+	  document.body.insertBefore(linebreak, inputform);*/
 
     localStorage.setItem("testkey", "testvalue");
 
-    var current_state = document.documentElement.outerHTML;
+    var tasks = document.getElementsByClassName("checkbox");
+    for(var i=0; i<tasks.length; i++) {
+        tasks[i].onclick = function() {
+            var deletebox = this;
+            deleteTask(deletebox);
+        }
+    }
+
+    document.getElementById('userInput').value = '';
+    //var current_state = document.documentElement.outerHTML;
+
+    var div_content = document.getElementById('checklist').innerHTML;
+
+    //localStorage.setItem("last", div_content);
+    localStorage.setItem(username + "_last_state", div_content);
+
+}
+
+function deleteTask(checkbox) {
+    var numCompleted = JSON.parse(localStorage.getItem(username+"_numCompleted")) + 1;
+    localStorage.setItem(username + "_numCompleted", numCompleted);
+    var deletelabel = document.getElementsByClassName(checkbox.id)[0]
+    var deletebreak = deletelabel.nextSibling;
+
+    deletelabel.style.textDecoration = "line-through";
+    setTimeout(function() {
+        checkbox.parentNode.removeChild(checkbox);
+        deletelabel.parentNode.removeChild(deletelabel);
+        deletebreak.parentNode.removeChild(deletebreak);
+
+        var div_content = document.getElementById('checklist').innerHTML;
+        localStorage.setItem(username + "_last_state", div_content);
+    }, 1000);
+    //var current_state = document.documentElement.outerHTML;
     //var username = window.opener.username;
-    localStorage.setItem(username + "_last_state", current_state);
-  }
+    
+    //localStorage.setItem("last", div_content);
+
+}
+
+window.onload = function () {
+    document.getElementById('username-tasks').innerHTML = String(username) + "'s " + "Tasks";
+    if (localStorage.getItem(username + "_last_state")) {
+        document.getElementById('checklist').innerHTML = localStorage.getItem(username + "_last_state");
+    }
+    var tasks = document.getElementsByClassName("checkbox");
+    for(var i=0; i<tasks.length; i++) {
+        tasks[i].onclick = function() {
+            var deletebox = this;
+            deleteTask(deletebox);
+        }
+    }
+}
 </script>
 
 </body>

@@ -2,11 +2,25 @@
 <html>
 <head>
 	<link rel="stylesheet" href="gamestyles.css">
-	<script src="jquery-1.11.3.min.js"></script>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+	<header class="topbar">
+	<a href="index.html" class="topbar">Home</a>
+  	<a href="aboutme.html" class="topbar">About Me</a>
+  	<a href="animations.html" class="topbar">My Animations</a>
+    <a href="games.html" class="topbar">My Games</a>
+    <a href="login.html" class="topbar">To-Do List</a>
+  	</header>
 	<h1>My Games</h1>
 	<p>Tic-Tac-Toe</p>
+	<div>
 	<canvas id="0" width="100" height="100"></canvas>
 	<canvas id="1" width="100" height="100"></canvas>
 	<canvas id="2" width="100" height="100"></canvas>
@@ -20,6 +34,7 @@
 	<canvas id="8" width="100" height="100"></canvas>
 	<br/>
 	<button id="tttreset">Reset</button>
+	</div>
 <script src="main.js" async></script>
 
 </body>

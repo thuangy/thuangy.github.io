@@ -1,0 +1,26 @@
+label {
+	display: inline-block;
+}
+
+.checkbox {
+	display: inline-block;
+}
+
+#userInput {
+	position:absolute; 
+	top:500px; 
+	/*left:5%; */
+	width:40%;
+}
+
+#submit-button {
+	position:absolute; 
+	top:550px; 
+	/*left:5%; */
+	width:40%;
+	margin-bottom: 50px;
+}
+
+#center {
+	text-align: left;
+}
