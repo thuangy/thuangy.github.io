@@ -31,14 +31,17 @@ var panels = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 var xpanels = [];
 var opanels = [];
 var stopttt = false;
+var bestspots = [4, 0, 2, 6, 8, 1, 3, 5, 7];
 
-var tttpanel = document.querySelectorAll('canvas');
+//var tttpanel = document.querySelectorAll('canvas');
+var tttpanel = document.getElementsByTagName('canvas');
 
 var opponento = panels[Math.floor(Math.random()*panels.length)];
 
 function strategy() {
 	opponento = panels[Math.floor(Math.random()*panels.length)];
-	for (x in twoinarow) {
+	//for (x in twoinarow) {
+	for (var x=0; x<twoinarow.length; x++) {
 		if (contains(twoinarow[x], opanels)) {
 			var oindex = Math.floor(x/3);
 			for (y in winningcombos[oindex]) {
@@ -48,13 +51,21 @@ function strategy() {
 				}
 			}
 		}
-		else if (contains(twoinarow[x], xpanels)) {
+	}
+	for (var x=0; x<twoinarow.length; x++) {
+		if (contains(twoinarow[x], xpanels)) {
 			var xindex = Math.floor(x/3);
 			for (y in winningcombos[xindex]) {
 				if (contains([winningcombos[xindex][y]], twoinarow[x]) === false && contains([winningcombos[xindex][y]], panels)) {
 					return winningcombos[xindex][y]
 				}
 			}
+		}
+	}
+
+	for (var i=0; i<bestspots.length; i++) {
+		if (panels.indexOf(bestspots[i]) !== -1) {
+			return bestspots[i];
 		}
 	}
 	return opponento
@@ -107,7 +118,32 @@ function makex(panelid) {
 	
 }
 
-tttpanel[0].onclick = function() {
+window.onload = function() {
+	for (var i=0; i<9; i++) {
+		tttpanel[i].onclick = function() {
+			var panelid = this.id;
+			if (stopttt === false) {
+				//var panelid = this.id;
+				//console.log(panelid);
+				//console.log(typeof panelid);
+				//console.log($.inArray(panelid, panels));
+				//console.log(panels.indexOf(parseInt(panelid)));
+
+				//alert(panels.indexOf(panelid));
+				if (panels.indexOf(parseInt(panelid)) !== -1) {
+					//var panelid = this.id;
+					makex(panelid);
+					if (stopttt === false) {
+						opponento = strategy();
+						makeo(opponento);
+					}
+				}
+			}
+		}
+	}
+}
+
+/*tttpanel[0].onclick = function() {
 	if (stopttt === false) {
 		if (contains([0], panels)) {
 			var panelid = tttpanel[0].getAttribute('id');
@@ -254,4 +290,4 @@ if (!localStorage.getItem('name')) {
 
 myButton.onclick = function() {
 	setUserName();
-}
+}*/
