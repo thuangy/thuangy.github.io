@@ -43,12 +43,10 @@ function strategy() {
 	//for (x in twoinarow) {
 	for (var x=0; x<twoinarow.length; x++) {
 		if (contains(twoinarow[x], opanels)) {
-			alert("hello");
 			var oindex = Math.floor(x/3);
 			for (y in winningcombos[oindex]) {
 				//alert(winningcombos[oindex]);
 				if (contains([winningcombos[oindex][y]], twoinarow[x]) === false && contains([winningcombos[oindex][y]], panels)) {
-					alert("goodbye");
 					return winningcombos[oindex][y]
 				}
 			}
