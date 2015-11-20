@@ -4,6 +4,7 @@ body {
 	background-size: cover;
     background-repeat: no-repeat;
     height: 800px;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
 }
 
 iframe {
@@ -58,7 +59,7 @@ header.bottombar{
 }
 
 div.inner {
-	width: 2135px;
+	/*width: 2135px;*/
 }
 
 #content{
@@ -71,13 +72,15 @@ h1 {
 	padding: 10px;
 	margin: 75px;
 	text-align: center;
-	font-family: "Candara";
+	/*font-family: "Candara";*/
 	font-size: 75px;
-	font-weight: normal;
+	font-weight: bold;
+	padding-top: 70px;
+    margin-bottom: 40px;
 }
 
 p {
-	font-family: "Helvetica";
+	/*font-family: "Helvetica";*/
 	font-size: 15px;
 	color: black;
 	text-align: center;

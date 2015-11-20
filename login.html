@@ -11,7 +11,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="login">
   <header class="topbar">
   <a href="index.html" class="topbar">Home</a>
     <a href="aboutme.html" class="topbar">About Me</a>
@@ -19,7 +19,7 @@
     <a href="games.html" class="topbar">My Games</a>
     <a href="login.html" class="topbar">To-Do List</a>
     </header>
-  <p style="text-align: left; padding: 100px 0px 50px 0px;">Please enter your login information</p>
+  <!--<p style="text-align: left; padding: 100px 0px 50px 0px;">Please enter your login information</p>
   <form>
     Username:<br>
     <input type="text" id="username">
@@ -28,6 +28,14 @@
     <input type="text" id="password">
     <br>
     <input type="submit" onclick="checkinfo();" />
+  </form>-->
+
+  <p id="animate-instructions">Please enter your name!</p>
+  <form id="animate-enter">
+    <br>
+    <input type="text" id="username" onkeydown="if (event.keyCode == 13) checkName();">
+    <br>
+    <!--<button onclick="checkName()">Submit</button>-->
   </form>
 
 <script type="text/javascript">
@@ -49,6 +57,14 @@
     } else {
       alert("Incorrect login information!");
     }
+  }
+
+  function checkName() {
+    var username = document.getElementById("username").value;
+    sessionStorage.setItem("username", username);
+    window.open("To-do.html");
+    //window.open("http://www.google.com");
+    //window.location.href = 'http://www.google.com';
   }
 
 </script>
