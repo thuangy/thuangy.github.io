@@ -7,6 +7,10 @@
 	background-color: rgb(152, 218, 208);
 }
 
+body {
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+
 label {
 	display: inline-block;
 }

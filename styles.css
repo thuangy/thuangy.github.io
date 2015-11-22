@@ -73,11 +73,12 @@ p {
 }
 
 img { 
-  	display: block;
+  	display: inline-block;
   	margin-left: auto;
   	margin-right: auto;
   	height: 500px;
   	padding-bottom: 50px;
+    height: 400px;
 }
 
 /*p {
@@ -186,6 +187,15 @@ img {
     -moz-animation-delay: 1s;
     -o-animation-delay: 1s;
 
+    padding: 10px;
+    margin: 75px;
+    text-align: center;
+
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+
+    /*font-family: "Candara";*/
+    font-weight: bold;
+
     /*-webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
        /*-moz-animation: fadein 2s; /* Firefox < 16 */
         /*-ms-animation: fadein 2s; /* Internet Explorer */
@@ -241,5 +251,9 @@ label {
     text-align: center;
     line-height: 150%;
     font-size: 1.5em;
+}
+
+#images {
+    text-align: center;
 }
 
