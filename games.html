@@ -11,29 +11,32 @@
   	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<header class="topbar">
-	<a href="index.html" class="topbar">Home</a>
-  	<a href="aboutme.html" class="topbar">About Me</a>
-  	<a href="animations.html" class="topbar">My Animations</a>
-    <a href="games.html" class="topbar">My Games</a>
-    <a href="login.html" class="topbar">To-Do List</a>
-  	</header>
-	<h1>My Game</h1>
-	<p>Tic-Tac-Toe</p>
-	<div>
-	<canvas id="0" width="100" height="100"></canvas>
-	<canvas id="1" width="100" height="100"></canvas>
-	<canvas id="2" width="100" height="100"></canvas>
-	<br/>
-	<canvas id="3" width="100" height="100"></canvas>
-	<canvas id="4" width="100" height="100"></canvas>
-	<canvas id="5" width="100" height="100"></canvas>
-	<br/>
-	<canvas id="6" width="100" height="100"></canvas>
-	<canvas id="7" width="100" height="100"></canvas>
-	<canvas id="8" width="100" height="100"></canvas>
-	<br/>
-	<button id="tttreset">Reset</button>
+	<div id="container">
+		<div id="background"></div>
+		<header class="topbar">
+		<a href="games.html" class="topbar">Tic Tac Toe</a>
+	    <a href="aboutme.html" class="topbar">About Me</a>
+	    <a href="index.html" class="topbar">Home</a>
+	    <!--<a href="animations.html" class="topbar">My Animations</a>
+	    <a href="login.html" class="topbar">To-Do List</a>-->
+	  	</header>
+		<h1 id="ttt">Tic Tac Toe</h1>
+		<!--<p>Tic-Tac-Toe</p>-->
+		<div>
+		<canvas id="0" width="100" height="100"></canvas>
+		<canvas id="1" width="100" height="100"></canvas>
+		<canvas id="2" width="100" height="100"></canvas>
+		<br/>
+		<canvas id="3" width="100" height="100"></canvas>
+		<canvas id="4" width="100" height="100"></canvas>
+		<canvas id="5" width="100" height="100"></canvas>
+		<br/>
+		<canvas id="6" width="100" height="100"></canvas>
+		<canvas id="7" width="100" height="100"></canvas>
+		<canvas id="8" width="100" height="100"></canvas>
+		<br/>
+		<button id="tttreset">Reset</button>
+		</div>
 	</div>
 <script src="main.js" async></script>
 
