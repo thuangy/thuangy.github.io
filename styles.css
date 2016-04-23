@@ -11,11 +11,13 @@ html {
     background: url(Website_Background.jpg);
     background-size: 100%;
     background-position: 0px -200px;
+    background-repeat: no-repeat;
 }
 
 #aboutMe {
     background-attachment: fixed;
     background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 #login {
