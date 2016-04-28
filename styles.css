@@ -301,7 +301,7 @@ a.aboutmeTopBar {
     background: url("https://farm3.staticflickr.com/2730/4122135874_9c70a29e94_o.jpg") center center;
     opacity: 0.4;
     width: 100%;
-    height: 700px;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -327,5 +327,17 @@ a.aboutmeTopBar {
 
 canvas {
     background-color: #FFA62F;
+    cursor: pointer;
 }
 
+#mecontainer {
+    background: white;
+    /* width: 1000px; */
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 50px;
+}
+
+img {
+    text-align: left;
+}
